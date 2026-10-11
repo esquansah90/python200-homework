@@ -272,18 +272,28 @@ plt.close()
 print("\n--- Task 6: Evaluation ---")
 print("Predicted vs Actual graph saved successfully!")
 
-# --- Project Summary ---
 
-# Predicted vs Actual Graph Interpretation:
-# Most points are close to the red dashed line,
-# showing that the model makes reasonably accurate
-# predictions of daily high temperatures.
-
-# Some larger prediction errors occur at lower
-# and middle temperatures. The highest temperatures
-# generally follow the perfect prediction line
-# more closely.
-
-# Overall, the full model performs well, with an
-# RMSE of 2.53°C and an R² of approximately 0.909.
+# --- Task 6: Final Project Summary ---
+#
+# The dataset contains 365 days of Atlanta weather
+# data from 2023. I used 292 days to train the model
+# and 73 days to test its predictions.
+#
+# The full model has an RMSE of 2.53°C, meaning its
+# prediction errors are typically around 2.53 degrees
+# Celsius. Its R² of 0.909 means it explains about
+# 90.9% of the variation in daily high temperatures
+# in the test data.
+#
+# The is_summer feature has the largest absolute
+# coefficient (+1.978). Its positive direction means
+# the model predicts summer days to be about 1.98°C
+# warmer when other features remain constant.
+# Because features have different units, coefficient
+# sizes do not directly measure overall importance.
+#
+# One surprising result is that wind speed has a
+# negative coefficient (-0.155). This suggests
+# higher wind speeds are associated with slightly
+# lower predicted daily high temperatures.
 
