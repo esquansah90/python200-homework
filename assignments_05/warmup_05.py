@@ -180,3 +180,11 @@ print("Ollama Q1 OpenAI comparison:", ask(
 # patterns, and produce coherent responses, making it versatile
 # for tasks like writing, answering questions, or summarizing
 # information.
+
+# Ollama Q1 Comparison:
+# Both OpenAI and Ollama explained large language models correctly.
+# OpenAI used more technical language, while Ollama was easier to understand.
+# One advantage of running Ollama locally is better privacy because
+# prompts do not need to be sent to a cloud service.
+# One disadvantage is that local models use my computer's resources
+# and may be slower or less powerful than cloud models.
