@@ -119,6 +119,10 @@ for node in response.source_nodes:
 
 # 2. The system suggested asking a barista instead
 #    of providing the actual password.
+#    The tone remained helpful and confident, but the response
+#    was less direct than the successful answers in Step 4
+#    because it could not provide the requested information.
+
 
 # 3. The retrieved documents included the company story,
 #    menu, and FAQ. The displayed snippets did not
