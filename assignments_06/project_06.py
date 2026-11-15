@@ -1,6 +1,6 @@
 
 # Week 6 Project
-
+import os
 from pathlib import Path
 from dotenv import load_dotenv
 from llama_index.core import (
@@ -11,8 +11,15 @@ from llama_index.core import (
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
 
+
 # Step 1: Load the API key
 load_dotenv()
+
+if os.getenv("OPENAI_API_KEY"):
+    print("API key loaded successfully.")
+else:
+    print("API key not found.")
+
 
 # Step 2: Load the Groundwork Coffee documents
 docs_dir = Path("assignments_06/resources/groundwork_docs")
