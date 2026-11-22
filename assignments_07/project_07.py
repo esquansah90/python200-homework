@@ -281,126 +281,108 @@ print("\n--- Task 2: CodeAgent Created ---")
 print("World Happiness CodeAgent is ready!")
 
 
-# Task 3
 
-# Query 1
-query_1 = "Load the happiness data and tell me its shape and column names."
+if __name__ == "__main__":
 
-print("\n--- Task 3: Query 1 ---")
+    # Task 3 - Query 1
+    query_1 = "Load the happiness data and tell me its shape and column names."
 
-response_1 = agent.run(query_1, reset=False)
+    print("\n--- Task 3: Query 1 ---")
+    response_1 = agent.run(query_1, reset=False)
 
-print("\nAgent Response:")
-print(response_1)
+    print("\nAgent Response:")
+    print(response_1)
 
+    # Task 3 - Query 2
+    query_2 = "Summarize the happiness_score column."
 
-# Task 3 - Query 2
+    print("\n--- Task 3: Query 2 ---")
+    response_2 = agent.run(query_2, reset=False)
 
-query_2 = "Summarize the happiness_score column."
+    print("\nAgent Response:")
+    print(response_2)
 
-print("\n--- Task 3: Query 2 ---")
+    # Task 3 - Query 3
+    query_3 = (
+        "What is the correlation between gdp_per_capita "
+        "and happiness_score? Is it statistically significant?"
+    )
 
-response_2 = agent.run(query_2, reset=False)
+    print("\n--- Task 3: Query 3 ---")
+    response_3 = agent.run(query_3, reset=False)
 
-print("\nAgent Response:")
-print(response_2)
+    print("\nAgent Response:")
+    print(response_3)
 
+    # Task 3 - Query 4
+    query_4 = "Show me the top 5 happiest countries in 2020."
 
-# Task 3 - Query 3
+    print("\n--- Task 3: Query 4 ---")
+    response_4 = agent.run(query_4, reset=False)
 
-query_3 = (
-    "What is the correlation between gdp_per_capita "
-    "and happiness_score? Is it statistically significant?"
-)
+    print("\nAgent Response:")
+    print(response_4)
 
-print("\n--- Task 3: Query 3 ---")
+    # Task 3 - Query 5
+    query_5 = (
+        "Using the pandas DataFrame named df, plot the average "
+        "happiness_score over the years as a line chart, "
+        "with one line per region. Group the real dataset by "
+        "year and region. Do not use placeholder or sample data. "
+        "Save the plot to outputs/happiness_by_region.png."
+    )
 
-response_3 = agent.run(query_3, reset=False)
+    print("\n--- Task 3: Query 5 ---")
 
-print("\nAgent Response:")
-print(response_3)
+    response_5 = agent.run(
+        query_5,
+        reset=False,
+        additional_args={"df": df}
+    )
 
+    print("\nAgent Response:")
+    print(response_5)
 
-# Task 3 - Query 4
+    plot_path = OUTPUT_DIR / "happiness_by_region.png"
 
-query_4 = "Show me the top 5 happiest countries in 2020."
+    if plot_path.exists():
+        print(f"Plot successfully saved to: {plot_path}")
+    else:
+        print("Plot was not found. Check the agent execution logs.")
 
-print("\n--- Task 3: Query 4 ---")
+    # Task 4 - Question 1
+    question_1 = "Which 5 countries had the highest GDP per capita in 2024?"
 
-response_4 = agent.run(query_4, reset=False)
+    print("\n--- Task 4: Question 1 ---")
+    answer_1 = agent.run(question_1, reset=False)
 
-print("\nAgent Response:")
-print(response_4)
+    print("\nAgent Response:")
+    print(answer_1)
 
+    # Tool usage: The agent should use get_top_n_countries().
 
-# Task 3 - Query 5
+    # Task 4 - Question 2
+    question_2 = (
+        "Using the pandas DataFrame named df, calculate the average "
+        "happiness_score for 2015 and 2024. Show both averages and "
+        "calculate how much the average changed between those years. "
+        "Use the real dataset and write Python code for the calculation."
+    )
 
+    print("\n--- Task 4: Question 2 ---")
 
-query_5 = (
-    "Using the pandas DataFrame named df, plot the average "
-    "happiness_score over the years as a line chart, "
-    "with one line per region. Group the real dataset by "
-    "year and region. Do not use placeholder or sample data. "
-    "Save the plot to outputs/happiness_by_region.png."
-)
+    answer_2 = agent.run(
+        question_2,
+        reset=False,
+        additional_args={"df": df}
+    )
 
+    print("\nAgent Response:")
+    print(answer_2)
 
-print("\n--- Task 3: Query 5 ---")
+    # Code generation: The agent should write pandas code to
+    # calculate and compare average happiness scores for two years.
 
-response_5 = agent.run(
-    query_5,
-    reset=False,
-    additional_args={"df": df}
-)
-
-print("\nAgent Response:")
-print(response_5)
-
-plot_path = OUTPUT_DIR / "happiness_by_region.png"
-
-if plot_path.exists():
-    print(f"Plot successfully saved to: {plot_path}")
-else:
-    print("Plot was not found. Check the agent execution logs.")
-
-
-# Task 4
-
-# Question 1
-question_1 = "Which 5 countries had the highest GDP per capita in 2024?"
-
-print("\n--- Task 4: Question 1 ---")
-
-answer_1 = agent.run(question_1, reset=False)
-
-print("\nAgent Response:")
-print(answer_1)
-
-# Tool usage: The agent should use get_top_n_countries().
-
-
-# Task 4 - Question 2
-
-question_2 = (
-    "Using the pandas DataFrame named df, calculate the average "
-    "happiness_score for 2015 and 2024. Show both averages and "
-    "calculate how much the average changed between those years. "
-    "Use the real dataset and write Python code for the calculation."
-)
-
-print("\n--- Task 4: Question 2 ---")
-
-answer_2 = agent.run(
-    question_2,
-    reset=False,
-    additional_args={"df": df}
-)
-
-print("\nAgent Response:")
-print(answer_2)
-
-# Code generation: The agent should write pandas code to
-# calculate and compare average happiness scores for two years.
 
 
 # --- Task 5: Reflection ---
